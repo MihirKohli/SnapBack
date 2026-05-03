@@ -1,6 +1,6 @@
 # Return Back — VSCode Extension
 
-![Return Back](icon.png)
+<img src="./icon.png" width="256" alt="Return Back" />
 
 Remembers up to **N** undo/redo snapshots per file and restores them across
 VSCode restarts. VSCode's built-in undo history is wiped every time you close
