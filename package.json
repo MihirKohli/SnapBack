@@ -1,0 +1,108 @@
+{
+  "name": "persistent-undo-redo",
+  "displayName": "Persistent Undo Redo",
+  "description": "Persistent, cross-restart undo/redo history (up to N snapshots per file) stored on disk.",
+  "version": "0.0.1",
+  "publisher": "mihir",
+  "repository": { "type": "git", "url": "https://github.com/mihir/persistent-undo-redo" },
+  "license": "MIT",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+
+  "contributes": {
+    "commands": [
+      {
+        "command": "persistentUndoRedo.undo",
+        "title": "Persistent Undo",
+        "category": "PersistentUndoRedo"
+      },
+      {
+        "command": "persistentUndoRedo.redo",
+        "title": "Persistent Redo",
+        "category": "PersistentUndoRedo"
+      },
+      {
+        "command": "persistentUndoRedo.showHistory",
+        "title": "Show History & Stats",
+        "category": "PersistentUndoRedo"
+      },
+      {
+        "command": "persistentUndoRedo.clearFile",
+        "title": "Clear History for This File",
+        "category": "PersistentUndoRedo"
+      },
+      {
+        "command": "persistentUndoRedo.clearAll",
+        "title": "Clear ALL Persistent History",
+        "category": "PersistentUndoRedo"
+      }
+    ],
+
+    "keybindings": [
+      {
+        "command": "persistentUndoRedo.undo",
+        "key": "ctrl+z",
+        "mac": "cmd+z",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "persistentUndoRedo.redo",
+        "key": "ctrl+y",
+        "mac": "cmd+shift+z",
+        "when": "editorTextFocus"
+      }
+    ],
+
+    "configuration": {
+      "title": "Persistent Undo Redo",
+      "properties": {
+        "persistentUndoRedo.maxHistory": {
+          "type": "number",
+          "default": 500,
+          "minimum": 1,
+          "maximum": 50000,
+          "description": "Maximum undo/redo snapshots stored per file. Each snapshot is the full file text at that moment — large files at high values will consume significant disk space."
+        }
+      }
+    },
+
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "persistentUndoRedo.submenu",
+          "group": "1_modification"
+        }
+      ],
+      "persistentUndoRedo.submenu": [
+        { "command": "persistentUndoRedo.undo" },
+        { "command": "persistentUndoRedo.redo" },
+        { "command": "persistentUndoRedo.showHistory" },
+        { "command": "persistentUndoRedo.clearFile" },
+        { "command": "persistentUndoRedo.clearAll" }
+      ]
+    },
+
+    "submenus": [
+      {
+        "id": "persistentUndoRedo.submenu",
+        "label": "Persistent Undo/Redo"
+      }
+    ]
+  },
+
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^2.22.0"
+  }
+}
