@@ -1,5 +1,7 @@
 # SnapBack — VSCode Extension
 
+![SnapBack](icon.png)
+
 Remembers up to **N** undo/redo snapshots per file and restores them across
 VSCode restarts. VSCode's built-in undo history is wiped every time you close
 the editor; SnapBack keeps its own parallel stack that survives.
