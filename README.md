@@ -1,8 +1,8 @@
-# Persistent Undo Redo — VSCode Extension
+# SnapBack — VSCode Extension
 
 Remembers up to **N** undo/redo snapshots per file and restores them across
 VSCode restarts. VSCode's built-in undo history is wiped every time you close
-the editor; this extension keeps its own parallel stack that survives.
+the editor; SnapBack keeps its own parallel stack that survives.
 
 ---
 
@@ -17,7 +17,7 @@ File change detected
                           │
              ┌────────────┴─────────────┐
              │                          │
-         Ctrl+Alt+Z                Ctrl+Alt+Y
+           Ctrl+Z                  Ctrl+Y
           (undo)                    (redo)
              │                          │
   pop undoStack snapshot      pop redoStack snapshot
@@ -38,17 +38,17 @@ on the next launch.
 
 ## Commands & Keybindings
 
-| Command | Default Shortcut | Description |
-|---|---|---|
-| `Persistent Undo` | `Ctrl+Alt+Z` / `Cmd+Alt+Z` | Step back through persistent history |
-| `Persistent Redo` | `Ctrl+Alt+Y` / `Cmd+Alt+Y` | Step forward through persistent history |
-| `Show History Stats` | — | Show current stack depths |
-| `Clear History for This File` | — | Wipe history for the active file |
-| `Clear All History in Workspace` | — | Wipe all persisted history |
+| Command | Windows | Mac | Description |
+|---|---|---|---|
+| `SnapBack Undo` | `Ctrl+Z` | `Cmd+Z` | Step back through persistent history |
+| `SnapBack Redo` | `Ctrl+Y` | `Cmd+Shift+Z` | Step forward through persistent history |
+| `Show History & Stats` | — | — | Show current stack depths |
+| `Clear History for This File` | — | — | Wipe history for the active file |
+| `Clear ALL Persistent History` | — | — | Wipe all persisted history |
 
-> These are **separate** from VSCode's native `Ctrl+Z` / `Ctrl+Y`. Both
-> systems run in parallel. If you want to replace the native shortcuts, update
-> the keybindings in `package.json` (or your personal keybindings file).
+> These keybindings **replace** VSCode's native `Ctrl+Z` / `Ctrl+Y` when the
+> editor is focused. To run both systems in parallel instead, assign different
+> shortcuts in `package.json` or your personal keybindings file.
 
 ---
 
@@ -57,10 +57,10 @@ on the next launch.
 ```jsonc
 // settings.json
 {
-  // Maximum undo/redo snapshots stored per file (default: 100)
+  // Maximum undo/redo snapshots stored per file (default: 500)
   // Each snapshot is a full copy of the file text at that moment.
   // Large files × high maxHistory = more workspace storage used.
-  "persistentUndoRedo.maxHistory": 200
+  "snapback.maxHistory": 200
 }
 ```
 
@@ -69,8 +69,8 @@ on the next launch.
 ## Getting Started
 
 ```bash
-# 1. Clone / copy the extension folder into your VS Code extensions path
-cd persistent-undo-redo
+# 1. Clone the repo
+cd snapback
 
 # 2. Install dependencies
 npm install
@@ -80,8 +80,8 @@ npm run compile
 
 # 4. Open in VSCode and press F5 to launch the Extension Development Host
 #    — or package it:
-npm run package   # produces persistent-undo-redo-0.1.0.vsix
-code --install-extension persistent-undo-redo-0.1.0.vsix
+npm run package   # produces snapback-0.0.1.vsix
+code --install-extension snapback-0.0.1.vsix
 ```
 
 ---

@@ -1,10 +1,10 @@
 {
-  "name": "persistent-undo-redo",
-  "displayName": "Persistent Undo Redo",
+  "name": "snapback",
+  "displayName": "SnapBack",
   "description": "Persistent, cross-restart undo/redo history (up to N snapshots per file) stored on disk.",
   "version": "0.0.1",
   "publisher": "mihir",
-  "repository": { "type": "git", "url": "https://github.com/mihir/persistent-undo-redo" },
+  "repository": { "type": "git", "url": "https://github.com/mihir/snapback" },
   "license": "MIT",
   "engines": { "vscode": "^1.85.0" },
   "categories": ["Other"],
@@ -14,41 +14,41 @@
   "contributes": {
     "commands": [
       {
-        "command": "persistentUndoRedo.undo",
-        "title": "Persistent Undo",
-        "category": "PersistentUndoRedo"
+        "command": "snapback.undo",
+        "title": "SnapBack Undo",
+        "category": "SnapBack"
       },
       {
-        "command": "persistentUndoRedo.redo",
-        "title": "Persistent Redo",
-        "category": "PersistentUndoRedo"
+        "command": "snapback.redo",
+        "title": "SnapBack Redo",
+        "category": "SnapBack"
       },
       {
-        "command": "persistentUndoRedo.showHistory",
+        "command": "snapback.showHistory",
         "title": "Show History & Stats",
-        "category": "PersistentUndoRedo"
+        "category": "SnapBack"
       },
       {
-        "command": "persistentUndoRedo.clearFile",
+        "command": "snapback.clearFile",
         "title": "Clear History for This File",
-        "category": "PersistentUndoRedo"
+        "category": "SnapBack"
       },
       {
-        "command": "persistentUndoRedo.clearAll",
+        "command": "snapback.clearAll",
         "title": "Clear ALL Persistent History",
-        "category": "PersistentUndoRedo"
+        "category": "SnapBack"
       }
     ],
 
     "keybindings": [
       {
-        "command": "persistentUndoRedo.undo",
+        "command": "snapback.undo",
         "key": "ctrl+z",
         "mac": "cmd+z",
         "when": "editorTextFocus"
       },
       {
-        "command": "persistentUndoRedo.redo",
+        "command": "snapback.redo",
         "key": "ctrl+y",
         "mac": "cmd+shift+z",
         "when": "editorTextFocus"
@@ -56,9 +56,9 @@
     ],
 
     "configuration": {
-      "title": "Persistent Undo Redo",
+      "title": "SnapBack",
       "properties": {
-        "persistentUndoRedo.maxHistory": {
+        "snapback.maxHistory": {
           "type": "number",
           "default": 500,
           "minimum": 1,
@@ -71,23 +71,23 @@
     "menus": {
       "editor/context": [
         {
-          "submenu": "persistentUndoRedo.submenu",
+          "submenu": "snapback.submenu",
           "group": "1_modification"
         }
       ],
-      "persistentUndoRedo.submenu": [
-        { "command": "persistentUndoRedo.undo" },
-        { "command": "persistentUndoRedo.redo" },
-        { "command": "persistentUndoRedo.showHistory" },
-        { "command": "persistentUndoRedo.clearFile" },
-        { "command": "persistentUndoRedo.clearAll" }
+      "snapback.submenu": [
+        { "command": "snapback.undo" },
+        { "command": "snapback.redo" },
+        { "command": "snapback.showHistory" },
+        { "command": "snapback.clearFile" },
+        { "command": "snapback.clearAll" }
       ]
     },
 
     "submenus": [
       {
-        "id": "persistentUndoRedo.submenu",
-        "label": "Persistent Undo/Redo"
+        "id": "snapback.submenu",
+        "label": "SnapBack"
       }
     ]
   },
