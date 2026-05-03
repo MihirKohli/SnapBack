@@ -1,10 +1,10 @@
 {
-  "name": "snapback",
-  "displayName": "SnapBack",
+  "name": "return",
+  "displayName": "Return Upload Error",
   "description": "Persistent, cross-restart undo/redo history (up to N snapshots per file) stored on disk.",
   "version": "0.0.1",
-  "publisher": "mihir",
-  "repository": { "type": "git", "url": "https://github.com/mihir/snapback" },
+  "publisher": "MihirKohli",
+  "repository": { "type": "git", "url": "https://github.com/mihir/return" },
   "license": "MIT",
   "engines": { "vscode": "^1.85.0" },
   "icon": "icon.png",
@@ -15,41 +15,41 @@
   "contributes": {
     "commands": [
       {
-        "command": "snapback.undo",
-        "title": "SnapBack Undo",
-        "category": "SnapBack"
+        "command": "return.undo",
+        "title": "Return Undo",
+        "category": "Return"
       },
       {
-        "command": "snapback.redo",
-        "title": "SnapBack Redo",
-        "category": "SnapBack"
+        "command": "return.redo",
+        "title": "Return Redo",
+        "category": "Return"
       },
       {
-        "command": "snapback.showHistory",
+        "command": "return.showHistory",
         "title": "Show History & Stats",
-        "category": "SnapBack"
+        "category": "Return"
       },
       {
-        "command": "snapback.clearFile",
+        "command": "return.clearFile",
         "title": "Clear History for This File",
-        "category": "SnapBack"
+        "category": "Return"
       },
       {
-        "command": "snapback.clearAll",
+        "command": "return.clearAll",
         "title": "Clear ALL Persistent History",
-        "category": "SnapBack"
+        "category": "Return"
       }
     ],
 
     "keybindings": [
       {
-        "command": "snapback.undo",
+        "command": "return.undo",
         "key": "ctrl+z",
         "mac": "cmd+z",
         "when": "editorTextFocus"
       },
       {
-        "command": "snapback.redo",
+        "command": "return.redo",
         "key": "ctrl+y",
         "mac": "cmd+shift+z",
         "when": "editorTextFocus"
@@ -57,9 +57,9 @@
     ],
 
     "configuration": {
-      "title": "SnapBack",
+      "title": "Return Upload Error",
       "properties": {
-        "snapback.maxHistory": {
+        "return.maxHistory": {
           "type": "number",
           "default": 500,
           "minimum": 1,
@@ -72,23 +72,23 @@
     "menus": {
       "editor/context": [
         {
-          "submenu": "snapback.submenu",
+          "submenu": "return.submenu",
           "group": "1_modification"
         }
       ],
-      "snapback.submenu": [
-        { "command": "snapback.undo" },
-        { "command": "snapback.redo" },
-        { "command": "snapback.showHistory" },
-        { "command": "snapback.clearFile" },
-        { "command": "snapback.clearAll" }
+      "return.submenu": [
+        { "command": "return.undo" },
+        { "command": "return.redo" },
+        { "command": "return.showHistory" },
+        { "command": "return.clearFile" },
+        { "command": "return.clearAll" }
       ]
     },
 
     "submenus": [
       {
-        "id": "snapback.submenu",
-        "label": "SnapBack"
+        "id": "return.submenu",
+        "label": "Return Upload Error"
       }
     ]
   },
@@ -104,6 +104,6 @@
     "@types/vscode": "^1.85.0",
     "@types/node": "^20.0.0",
     "typescript": "^5.3.0",
-    "@vscode/vsce": "^2.22.0"
+    "@vscode/vsce": "^3.9.1"
   }
 }

@@ -1,10 +1,10 @@
-# SnapBack — VSCode Extension
+# Return Upload Error — VSCode Extension
 
-![SnapBack](icon.png)
+![Return Upload Error](icon.png)
 
 Remembers up to **N** undo/redo snapshots per file and restores them across
 VSCode restarts. VSCode's built-in undo history is wiped every time you close
-the editor; SnapBack keeps its own parallel stack that survives.
+the editor; Return Upload Error keeps its own parallel stack that survives.
 
 ---
 
@@ -42,8 +42,8 @@ on the next launch.
 
 | Command | Windows | Mac | Description |
 |---|---|---|---|
-| `SnapBack Undo` | `Ctrl+Z` | `Cmd+Z` | Step back through persistent history |
-| `SnapBack Redo` | `Ctrl+Y` | `Cmd+Shift+Z` | Step forward through persistent history |
+| `Return Undo` | `Ctrl+Z` | `Cmd+Z` | Step back through persistent history |
+| `Return Redo` | `Ctrl+Y` | `Cmd+Shift+Z` | Step forward through persistent history |
 | `Show History & Stats` | — | — | Show current stack depths |
 | `Clear History for This File` | — | — | Wipe history for the active file |
 | `Clear ALL Persistent History` | — | — | Wipe all persisted history |
@@ -62,7 +62,7 @@ on the next launch.
   // Maximum undo/redo snapshots stored per file (default: 500)
   // Each snapshot is a full copy of the file text at that moment.
   // Large files × high maxHistory = more workspace storage used.
-  "snapback.maxHistory": 200
+  "return.maxHistory": 200
 }
 ```
 
@@ -72,7 +72,7 @@ on the next launch.
 
 ```bash
 # 1. Clone the repo
-cd snapback
+cd return
 
 # 2. Install dependencies
 npm install
@@ -82,8 +82,7 @@ npm run compile
 
 # 4. Open in VSCode and press F5 to launch the Extension Development Host
 #    — or package it:
-npm run package   # produces snapback-0.0.1.vsix
-code --install-extension snapback-0.0.1.vsix
+npx vsce package --allow-missing-repository && code --install-extension return-0.0.1.vsix
 ```
 
 ---

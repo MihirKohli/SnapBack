@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(sips -z 128 128 /Users/developer/Desktop/restore-undo/icon.png --out /Users/developer/Desktop/restore-undo/icon.png)"
     ]
   }
 }

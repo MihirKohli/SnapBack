@@ -1,0 +1,6 @@
+.claude/
+src/
+out/**/*.map
+tsconfig.json
+package-lock.json
+*.vsix
