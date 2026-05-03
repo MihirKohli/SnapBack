@@ -1,6 +1,6 @@
 {
   "name": "return",
-  "displayName": "Return Upload Error",
+  "displayName": "Return",
   "description": "Persistent, cross-restart undo/redo history (up to N snapshots per file) stored on disk.",
   "version": "0.0.1",
   "publisher": "MihirKohli",
@@ -57,7 +57,7 @@
     ],
 
     "configuration": {
-      "title": "Return Upload Error",
+      "title": "Return",
       "properties": {
         "return.maxHistory": {
           "type": "number",
@@ -88,7 +88,7 @@
     "submenus": [
       {
         "id": "return.submenu",
-        "label": "Return Upload Error"
+        "label": "Return"
       }
     ]
   },
