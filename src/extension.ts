@@ -12,7 +12,7 @@ let statusBar: vscode.StatusBarItem;
 // ─── Activation ────────────────────────────────────────────────────────────
 
 export function activate(context: vscode.ExtensionContext): void {
-  const cfg = vscode.workspace.getConfiguration("persistentUndoRedo");
+  const cfg = vscode.workspace.getConfiguration("returnBack");
   const maxHistory = cfg.get<number>("maxHistory", 100);
 
   const persistence = new DiskPersistence(context.globalStorageUri.fsPath);
@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext): void {
     vscode.StatusBarAlignment.Left,
     10
   );
-  statusBar.command = "persistentUndoRedo.showHistory";
+  statusBar.command = "returnBack.showHistory";
   statusBar.tooltip = "Persistent Undo/Redo — click for details";
   context.subscriptions.push(statusBar);
 
@@ -68,7 +68,7 @@ export function activate(context: vscode.ExtensionContext): void {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "persistentUndoRedo.undo",
+      "returnBack.undo",
       async () => {
         const editor = vscode.window.activeTextEditor;
         if (!editor) return;
@@ -87,7 +87,7 @@ export function activate(context: vscode.ExtensionContext): void {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "persistentUndoRedo.redo",
+      "returnBack.redo",
       async () => {
         const editor = vscode.window.activeTextEditor;
         if (!editor) return;
@@ -106,7 +106,7 @@ export function activate(context: vscode.ExtensionContext): void {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "persistentUndoRedo.showHistory",
+      "returnBack.showHistory",
       () => {
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
@@ -125,7 +125,7 @@ export function activate(context: vscode.ExtensionContext): void {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "persistentUndoRedo.clearFile",
+      "returnBack.clearFile",
       () => {
         const editor = vscode.window.activeTextEditor;
         if (!editor) return;
@@ -140,7 +140,7 @@ export function activate(context: vscode.ExtensionContext): void {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "persistentUndoRedo.clearAll",
+      "returnBack.clearAll",
       async () => {
         const answer = await vscode.window.showWarningMessage(
           "Clear persistent undo/redo history for ALL files in this workspace?",

@@ -2,7 +2,7 @@
   "name": "return-back",
   "displayName": "Return Back",
   "description": "Persistent, cross-restart undo/redo history (up to N snapshots per file) stored on disk.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "MihirKohli",
   "repository": { "type": "git", "url": "https://github.com/mihir/return-back" },
   "license": "MIT",
