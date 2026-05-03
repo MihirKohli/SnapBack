@@ -1,10 +1,10 @@
 {
-  "name": "return",
-  "displayName": "Return",
+  "name": "return-back",
+  "displayName": "Return Back",
   "description": "Persistent, cross-restart undo/redo history (up to N snapshots per file) stored on disk.",
   "version": "0.0.1",
   "publisher": "MihirKohli",
-  "repository": { "type": "git", "url": "https://github.com/mihir/return" },
+  "repository": { "type": "git", "url": "https://github.com/mihir/return-back" },
   "license": "MIT",
   "engines": { "vscode": "^1.85.0" },
   "icon": "icon.png",
@@ -15,41 +15,41 @@
   "contributes": {
     "commands": [
       {
-        "command": "return.undo",
-        "title": "Return Undo",
-        "category": "Return"
+        "command": "returnBack.undo",
+        "title": "Return Back Undo",
+        "category": "Return Back"
       },
       {
-        "command": "return.redo",
-        "title": "Return Redo",
-        "category": "Return"
+        "command": "returnBack.redo",
+        "title": "Return Back Redo",
+        "category": "Return Back"
       },
       {
-        "command": "return.showHistory",
+        "command": "returnBack.showHistory",
         "title": "Show History & Stats",
-        "category": "Return"
+        "category": "Return Back"
       },
       {
-        "command": "return.clearFile",
+        "command": "returnBack.clearFile",
         "title": "Clear History for This File",
-        "category": "Return"
+        "category": "Return Back"
       },
       {
-        "command": "return.clearAll",
+        "command": "returnBack.clearAll",
         "title": "Clear ALL Persistent History",
-        "category": "Return"
+        "category": "Return Back"
       }
     ],
 
     "keybindings": [
       {
-        "command": "return.undo",
+        "command": "returnBack.undo",
         "key": "ctrl+z",
         "mac": "cmd+z",
         "when": "editorTextFocus"
       },
       {
-        "command": "return.redo",
+        "command": "returnBack.redo",
         "key": "ctrl+y",
         "mac": "cmd+shift+z",
         "when": "editorTextFocus"
@@ -57,9 +57,9 @@
     ],
 
     "configuration": {
-      "title": "Return",
+      "title": "Return Back",
       "properties": {
-        "return.maxHistory": {
+        "returnBack.maxHistory": {
           "type": "number",
           "default": 500,
           "minimum": 1,
@@ -72,23 +72,23 @@
     "menus": {
       "editor/context": [
         {
-          "submenu": "return.submenu",
+          "submenu": "returnBack.submenu",
           "group": "1_modification"
         }
       ],
-      "return.submenu": [
-        { "command": "return.undo" },
-        { "command": "return.redo" },
-        { "command": "return.showHistory" },
-        { "command": "return.clearFile" },
-        { "command": "return.clearAll" }
+      "returnBack.submenu": [
+        { "command": "returnBack.undo" },
+        { "command": "returnBack.redo" },
+        { "command": "returnBack.showHistory" },
+        { "command": "returnBack.clearFile" },
+        { "command": "returnBack.clearAll" }
       ]
     },
 
     "submenus": [
       {
-        "id": "return.submenu",
-        "label": "Return"
+        "id": "returnBack.submenu",
+        "label": "Return Back"
       }
     ]
   },

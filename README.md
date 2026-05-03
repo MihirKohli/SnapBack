@@ -1,10 +1,10 @@
-# Return — VSCode Extension
+# Return Back — VSCode Extension
 
-![Return](icon.png)
+![Return Back](icon.png)
 
 Remembers up to **N** undo/redo snapshots per file and restores them across
 VSCode restarts. VSCode's built-in undo history is wiped every time you close
-the editor; Return keeps its own parallel stack that survives.
+the editor; Return Back keeps its own parallel stack that survives.
 
 ---
 
@@ -42,8 +42,8 @@ on the next launch.
 
 | Command | Windows | Mac | Description |
 |---|---|---|---|
-| `Return Undo` | `Ctrl+Z` | `Cmd+Z` | Step back through persistent history |
-| `Return Redo` | `Ctrl+Y` | `Cmd+Shift+Z` | Step forward through persistent history |
+| `Return Back Undo` | `Ctrl+Z` | `Cmd+Z` | Step back through persistent history |
+| `Return Back Redo` | `Ctrl+Y` | `Cmd+Shift+Z` | Step forward through persistent history |
 | `Show History & Stats` | — | — | Show current stack depths |
 | `Clear History for This File` | — | — | Wipe history for the active file |
 | `Clear ALL Persistent History` | — | — | Wipe all persisted history |
@@ -62,7 +62,7 @@ on the next launch.
   // Maximum undo/redo snapshots stored per file (default: 500)
   // Each snapshot is a full copy of the file text at that moment.
   // Large files × high maxHistory = more workspace storage used.
-  "return.maxHistory": 200
+  "returnBack.maxHistory": 200
 }
 ```
 
@@ -72,7 +72,7 @@ on the next launch.
 
 ```bash
 # 1. Clone the repo
-cd return
+cd return-back
 
 # 2. Install dependencies
 npm install
@@ -82,7 +82,7 @@ npm run compile
 
 # 4. Open in VSCode and press F5 to launch the Extension Development Host
 #    — or package it:
-npx vsce package --allow-missing-repository && code --install-extension return-0.0.1.vsix
+npx vsce package --allow-missing-repository && code --install-extension return-back-0.0.1.vsix
 ```
 
 ---
